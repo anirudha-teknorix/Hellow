@@ -1,13 +1,20 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { Stack } from 'expo-router'
+import { Slot, Stack } from 'expo-router'
+import { SessionProvider } from './ctx';
 
 const StackLayout = () => {
+  // return (
+  //   <Stack>
+  //     <Stack.Screen name='(tabs)' options={{headerShown: false, headerBackButtonDisplayMode: 'minimal'}}/>
+  //   </Stack>
+  // )
+
   return (
-    <Stack>
-      <Stack.Screen name='(tabs)' options={{headerShown: false, headerBackButtonDisplayMode: 'minimal'}}/>
-    </Stack>
-  )
+    <SessionProvider>
+      <Slot />
+    </SessionProvider>
+  );
 }
 
 export default StackLayout
