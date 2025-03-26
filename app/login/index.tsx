@@ -1,9 +1,9 @@
 import { View, Text, Button } from 'react-native'
 import React from 'react'
 import { useSession } from '../ctx';
-import { router } from 'expo-router';
+import { router, Stack } from 'expo-router';
 
-const SignIn = () => {
+const index = () => {
 
     const { signIn } = useSession();
 
@@ -11,15 +11,16 @@ const SignIn = () => {
         //Adicione sua lógica de login aqui
         signIn();
         //Antes de navegar, tenha certeza de que o usuário está autenticado
-        router.replace('/home');
+        router.push('/login/otp');
     };
     
   return (
     <View style={{flex:1, justifyContent:'center', alignItems:'center', gap: 10}}>
+      <Stack.Screen options={{headerTitle: `Sign In`, headerBackButtonDisplayMode: 'minimal'}}/>
       <Text>SignIn</Text>
       <Button title="Login" onPress={handleLogin} />
     </View>
   )
 }
 
-export default SignIn
+export default index
